@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     python-pip \
     python3-catkin-tools \
     socat \ 
-    minicom \ 
+    minicom \
+    psmisc \ 
     ros-melodic-move-base \
     ros-melodic-joy \
     ros-melodic-cv-bridge \
@@ -65,5 +66,6 @@ ENTRYPOINT [ "/ros_entrypoint.sh" ]
 
 #sudo docker build -t bruce-melodic -f bruce-melodic.Dockerfile .
 #xhost +
-#sudo docker run --rm -it --net=host -v /tmp/.X11-unix:/tmp/.X11-unix:rw -e DISPLAY="$DISPLAY" --privileged -v /dev/bus/usb:/dev/bus/usb  -v "/home/rfal/.ros/:/root/./ros/" -v "/home/rfal/ivana/PlanningWithVMExperiments/:/root/PlanningWithVMExperiments/" bruce-melodic bash
+#sudo docker run --rm -it --net=host -v /tmp/.X11-unix:/tmp/.X11-unix:rw -e DISPLAY="$DISPLAY" --privileged -v /dev/bus/usb:/dev/bus/usb  -v "/home/rfal/.ros/:/root/.ros/" -v "/home/rfal/ivana/PlanningWithVMExperiments/:/root/PlanningWithVMExperiments/" -e XDG_RUNTIME_DIR="/root/PlanningWithVMExperiments/" bruce-melodic bash
+
 
